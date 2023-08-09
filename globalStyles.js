@@ -43,11 +43,20 @@ export default styles = StyleSheet.create({
   viewInput: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    width: 70,
+    justifyContent: 'center',
+    width: 120,
     borderColor: '#fff',
     borderStyle:"solid",
     borderWidth: 2,
     borderRadius: 9,
   },
+  botao:{
+    backgroundColor:'#9368B7',
+    borderRadius: 20,
+    marginTop: 20,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+  }
 });
