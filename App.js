@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import {
   Pressable,
   Text,
+  TextInput,
   View,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
@@ -14,6 +15,7 @@ export default function App() {
   const [moedaOrigem, setMoedaOrigem] = useState('BRL')
   const [moedaDestino, setMoedaDestino] = useState('USD')
   const [valorConvertido,setValorConvertido] = useState('')
+  const [valorOriginal, setValorOriginal] = useState('99.99999')
 
   const buscarHandle = async () =>{
     let URL = `https://economia.awesomeapi.com.br/last/${moedaOrigem}-${moedaDestino}`
@@ -23,9 +25,11 @@ export default function App() {
       let json = await page.json()
       console.log(json)
       let indice = parseFloat(json[`${moedaOrigem}${moedaDestino}`].high)
-      console.log(json[`USDBRL`].high)
+      setValorConvertido(indice)
+      console.log(indice)
+      // console.log(json[`USDBRL`].high)
     } catch (error){
-
+      setValorConvertido(`Erro: ${error.message}`)
     }
   }
   const limparResultado = () =>{
@@ -61,6 +65,9 @@ export default function App() {
           <Picker.Item label="Ouro" value="XAU" />
           <Picker.Item label="Bitcoin" value="BTC" />
         </Picker>
+      </View>
+      <View style={styles.viewInput}>
+        <TextInput value={valorOriginal} onChangeText={setValorOriginal} keyboardType='numeric'/>
       </View>
       </View>
       <Pressable style={styles.botao} onPress={buscarHandle}><Text>Buscar valor</Text></Pressable>
