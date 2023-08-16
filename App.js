@@ -15,9 +15,17 @@ export default function App() {
   const [moedaDestino, setMoedaDestino] = useState('USD')
   const [valorConvertido,setValorConvertido] = useState('')
 
-  const buscarHandle = () =>{
+  const buscarHandle = async () =>{
     let URL = 'https://economia.awesomeapi.com.br/last/USD-BRL'
-    setValorConvertido(URL)
+    // setValorConvertido(URL)
+    try{
+      let page = await fetch(URL)
+      let json = await page.json()
+      console.log(json)
+      console.log(json[`USDBRL`].high)
+    } catch (error){
+
+    }
   }
   const limparResultado = () =>{
     setValorConvertido('')
@@ -54,8 +62,8 @@ export default function App() {
         </Picker>
       </View>
       </View>
-      <Pressable style={styles.botao}><Text>Buscar valor</Text></Pressable>
-      <Text>("Resultado" ${valorConvertido})</Text>
+      <Pressable style={styles.botao} onPress={buscarHandle}><Text>Buscar valor</Text></Pressable>
+      <Text>{`Resultado: ${valorConvertido}`}</Text>
       <StatusBar style="auto" />
       </View>
     </View>
