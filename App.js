@@ -44,7 +44,7 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.title}>Conversor de moedas</Text>
-        <View>
+        <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
       <Text>Moeda 1</Text>
       <View style={styles.viewInpu}>
       <Picker
@@ -59,7 +59,7 @@ export default function App() {
         </Picker>
       </View>
       </View>
-      <View>
+      <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
       <Text>Moeda 2</Text>
       <View style={styles.viewInpu}>
       <Picker
@@ -73,13 +73,17 @@ export default function App() {
           <Picker.Item label="Bitcoin" value="BTC" />
         </Picker>
       </View>
+      </View>
+      <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
       <View style={styles.viewInput}>
         <TextInput value={valorOriginal} onChangeText={setValorOriginal} keyboardType='numeric'/>
       </View>
       </View>
+      <View>
       <Pressable style={styles.botao} onPress={buscarHandle}><Text>Buscar valor</Text></Pressable>
       <Pressable style={styles.botao} onPress={limparResultado}><Text>Limpar valor</Text></Pressable>
-      <Text>{`Resultado: ${valorConvertido}`}</Text>
+      </View>
+      <Text style={{textAlign:'center'}}>{`Resultado: ${valorConvertido}`}</Text>
       <StatusBar style="auto" />
       </View>
     </View>

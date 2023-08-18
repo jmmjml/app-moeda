@@ -41,7 +41,7 @@ export default styles = StyleSheet.create({
     paddingTop: 50,
   },
   viewInput: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     width: 120,
@@ -52,6 +52,7 @@ export default styles = StyleSheet.create({
   },
   botao:{
     backgroundColor:'#9368B7',
+    width: 150,
     borderRadius: 20,
     marginTop: 20,
     height: 30,
