@@ -34,6 +34,9 @@ export default function App() {
   }
   const limparResultado = () =>{
     setValorConvertido('')
+    setValorOriginal('33.3333')
+    setMoedaOrigem('BRL')
+    setMoedaDestino('USD')
   }
   return (
     <View style={styles.container}>
@@ -71,6 +74,7 @@ export default function App() {
       </View>
       </View>
       <Pressable style={styles.botao} onPress={buscarHandle}><Text>Buscar valor</Text></Pressable>
+      <Pressable style={styles.botao} onPress={limparResultado}><Text>Limpar valor</Text></Pressable>
       <Text>{`Resultado: ${valorConvertido}`}</Text>
       <StatusBar style="auto" />
       </View>
