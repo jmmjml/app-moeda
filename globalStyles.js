@@ -25,7 +25,7 @@ export default styles = StyleSheet.create({
     textAlign: 'center',
     alignSelf: 'center',
     fontSize: 35,
-    color: '#fff',
+    color: '#000',
   },
   texto: {
     textAlign: 'justify',

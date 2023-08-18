@@ -25,8 +25,10 @@ export default function App() {
       let json = await page.json()
       console.log(json)
       let indice = parseFloat(json[`${moedaOrigem}${moedaDestino}`].high)
-      setValorConvertido(indice)
+      // setValorConvertido(indice)
       console.log(indice)
+      let resu = (indice*valorOriginal)
+      setValorConvertido(resu)
       // console.log(json[`USDBRL`].high)
     } catch (error){
       setValorConvertido(`Erro: ${error.message}`)
@@ -41,13 +43,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text> Conversor de moedas</Text>
+        <Text style={styles.title}>Conversor de moedas</Text>
         <View>
       <Text>Moeda 1</Text>
       <View style={styles.viewInpu}>
       <Picker
           selectedValue={moedaOrigem}
           onValueChange={(itemValue, itemIndex) => setMoedaOrigem(itemValue)}
+          style={{width:200}}
         >
           <Picker.Item label="Real Brasileiro" value="BRL" />
           <Picker.Item label="Dolar Americano" value="USD" />
@@ -62,6 +65,7 @@ export default function App() {
       <Picker
           selectedValue={moedaDestino}
           onValueChange={(itemValue, itemIndex) => setMoedaDestino(itemValue)}
+          style={{width:200}}
         >
           <Picker.Item label="Real Brasileiro" value="BRL" />
           <Picker.Item label="Dolar Americano" value="USD" />
