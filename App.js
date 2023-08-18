@@ -79,7 +79,7 @@ export default function App() {
         <TextInput value={valorOriginal} onChangeText={setValorOriginal} keyboardType='numeric'/>
       </View>
       </View>
-      <View>
+      <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
       <Pressable style={styles.botao} onPress={buscarHandle}><Text>Buscar valor</Text></Pressable>
       <Pressable style={styles.botao} onPress={limparResultado}><Text>Limpar valor</Text></Pressable>
       </View>
