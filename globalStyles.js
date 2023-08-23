@@ -64,6 +64,6 @@ export default styles = StyleSheet.create({
   bordaEscolha:{
     borderColor:"#fff",
     borderStyle:"solid",
-    borderRadius:"9px"
+    borderRadius:9,
   }
 });
